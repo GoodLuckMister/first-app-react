@@ -1,0 +1,16 @@
+.NavBar {
+  grid-area: n;
+  background-color: greenyellow;
+}
+.NavBar ul {
+  list-style: none;
+}
+.item {
+  color: slateblue;
+}
+.link {
+  color: tomato;
+}
+.link.activ {
+  color: darkblue;
+}

@@ -1,0 +1,16 @@
+.NewPosts {
+  color: aqua;
+}
+.NewPosts .title {
+  color: aquamarine;
+}
+.NewPosts textarea {
+  background-color: cadetblue;
+}
+.button {
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+}
