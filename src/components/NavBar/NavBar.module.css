@@ -10,7 +10,8 @@
 }
 .link {
   color: tomato;
+  text-decoration: none;
 }
-.link.activ {
+.item a.activLink {
   color: darkblue;
 }
