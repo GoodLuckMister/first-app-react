@@ -12,7 +12,7 @@ import Posts from "./posts/Posts";
 
 const Content = (props) => {
 
-    let postsData = props.posts.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)
+    let postsData = props.state.posts.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div>
