@@ -20,6 +20,15 @@ let state = {
             {id: 3, message: 'Babe got me'},
             {id: 4, message: 'You actor man'}
         ]
+    },
+    asidePage:{
+        asideSet: [
+            {id: '/content', paragraph: 'Profile'},
+            {id: '/dialogs', paragraph: 'Messages'},
+            {id: '/news', paragraph: 'News'},
+            {id: '/music', paragraph: 'Music'},
+            {id: '/settings', paragraph: 'Settings'}
+        ]
     }
 
 }

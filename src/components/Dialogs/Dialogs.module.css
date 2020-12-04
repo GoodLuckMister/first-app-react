@@ -1,6 +1,6 @@
 .dialogs{
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 5fr 5fr;
 }
 .dialogsItems{
     padding: 10px;
@@ -8,10 +8,17 @@
 .dialog{
 
 }
-.dialog.active{
+.nameLink {
+
+}
+.dialog a.activeLink{
     color: yellow;
 }
 .messages{
     padding: 10px;
 }
 .message{}
+.image{
+    width: 50px;
+    border-radius:50%;
+}

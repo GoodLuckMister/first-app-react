@@ -6,7 +6,11 @@
   list-style: none;
 }
 .item {
+
   color: slateblue;
+}
+.item a{
+  display: block;
 }
 .link {
   color: tomato;
