@@ -1,17 +1,18 @@
 import React, {} from 'react';
 import s from './newPosts.module.css';
 
-const NewPosts = () => {
+const NewPosts = (props) => {
     let newPostElement = React.createRef();
-    let addPost = () => {
+    let addPosts = () => {
+
         let text = newPostElement.current.value;
-        alert(text);
-    }
+        props.addPost(text);
+    };
     return (
         <div className={s.NewPosts}>
             <div className={s.title}>New post</div>
             <textarea ref={newPostElement}></textarea>
-            <button onClick={addPost} className={s.button}>send</button>
+            <button onClick={addPosts} className={s.button}>send</button>
         </div>
 
     )

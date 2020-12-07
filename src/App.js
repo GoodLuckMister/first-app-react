@@ -1,5 +1,5 @@
 import React, {} from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import './App.css';
 import Content from './components/Content/Content';
 import Header from './components/Header/Header';
@@ -12,19 +12,20 @@ import Settings from "./components/Settings/Settings";
 const App = (props) => {
 
     return (
-        <BrowserRouter>
-            <div className="appName">
-                <Header/>
-                <NavBar state={props.state.asidePage}/>
-                <div class="appName-wrapper-content">
-                    <Route path='/content' render={() => <Content state={props.state.contentPage}/>}/>
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogPage}/>}/>
-                    <Route path='/news' render={() => <News/>}/>
-                    <Route path='/music' render={() => <Music/>}/>
-                    <Route path='/settings' render={() => <Settings/>}/>
-                </div>
+
+        <div className="appName">
+            <Header/>
+            <NavBar state={props.state.asidePage}/>
+            <div className="appName-wrapper-content">
+                <Route path='/content' render={() =>
+                    <Content state={props.state.contentPage} addPost={props.addPost}/>}/>
+                <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogPage}/>}/>
+                <Route path='/news' render={() => <News/>}/>
+                <Route path='/music' render={() => <Music/>}/>
+                <Route path='/settings' render={() => <Settings/>}/>
             </div>
-        </BrowserRouter>
+        </div>
+
     );
 }
 

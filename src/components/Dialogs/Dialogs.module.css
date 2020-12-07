@@ -22,3 +22,8 @@
     width: 50px;
     border-radius:50%;
 }
+.newMessages{
+    position: absolute;
+    top:300px;
+    right: 100px;
+}

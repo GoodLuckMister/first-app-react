@@ -21,7 +21,7 @@ const Content = (props) => {
                 <Ava/>
                 <Description/>
                 <MyPosts/>
-                <NewPosts/>
+                <NewPosts addPost={props.addPost}/>
                 {postsData}
             </div>
         </div>
