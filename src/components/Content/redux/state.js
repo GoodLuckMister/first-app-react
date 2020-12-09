@@ -5,7 +5,8 @@ let state = {
     contentPage: {
         posts: [
             {message: 'Hello my friend', likesCount: 15},
-            {message: 'I\'m fine', likesCount: 20}]
+            {message: 'I\'m fine', likesCount: 20}],
+        newPostText: 'hello js'
     },
     dialogPage: {
         dialogs: [
@@ -34,15 +35,23 @@ let state = {
     }
 
 }
-export let addPost = (postMessage) => {
+window.state = state;
+export let addPost = () => {
 
     let newPost = {
-        message: postMessage,
+        message: state.contentPage.newPostText,
         likesCount: 0
     };
     state.contentPage.posts.push(newPost);
+    state.contentPage.newPostText = '';
+    rerenderEntireTree(state);
 }
-rerenderEntireTree(state);
+export let updateNewPostText = (newText) => {
+
+    state.contentPage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
 
 export default state;
 

@@ -12,7 +12,7 @@ import Posts from "./posts/Posts";
 
 const Content = (props) => {
 
-    let postsData = props.state.posts.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)
+    let postsData = props.contentPage.posts.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div>
@@ -21,7 +21,10 @@ const Content = (props) => {
                 <Ava/>
                 <Description/>
                 <MyPosts/>
-                <NewPosts addPost={props.addPost}/>
+                <NewPosts addPost={props.addPost}
+                          newPostText={props.contentPage.newPostText}
+                          updateNewPostText={props.updateNewPostText}
+                />
                 {postsData}
             </div>
         </div>
