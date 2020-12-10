@@ -1,6 +1,6 @@
-import {rerenderEntireTree} from "../../../render";
-
-
+let rerenderEntireTree = () => {
+    console.log("state changed")
+}
 let state = {
     contentPage: {
         posts: [
@@ -23,7 +23,7 @@ let state = {
             {id: 3, message: 'Babe got me'},
             {id: 4, message: 'You actor man'}
         ],
-        newMessageText:'hola hola'
+        newMessageText: 'hola hola'
     },
     asidePage: {
         asideSet: [
@@ -37,7 +37,7 @@ let state = {
 
 }
 window.state = state;
-export let addPost = () => {
+export const addPost = () => {
 
     let newPost = {
         message: state.contentPage.newPostText,
@@ -48,12 +48,12 @@ export let addPost = () => {
     rerenderEntireTree(state);
 
 }
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 
     state.contentPage.newPostText = newText;
     rerenderEntireTree(state);
 }
-export let addMessage = () => {
+export const addMessage = () => {
 
 
     let newMessage = {
@@ -65,12 +65,15 @@ export let addMessage = () => {
     rerenderEntireTree(state);
 
 }
-export let updateNewMessageText = (newTextText) => {
+export const updateNewMessageText = (newTextText) => {
 
     state.dialogPage.newMessageText = newTextText;
     rerenderEntireTree(state);
 }
 
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
 
 export default state;
 
