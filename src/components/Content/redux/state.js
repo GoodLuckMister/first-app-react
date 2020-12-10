@@ -22,7 +22,8 @@ let state = {
             {id: 2, message: 'I coming you'},
             {id: 3, message: 'Babe got me'},
             {id: 4, message: 'You actor man'}
-        ]
+        ],
+        newMessageText:'hola hola'
     },
     asidePage: {
         asideSet: [
@@ -45,10 +46,28 @@ export let addPost = () => {
     state.contentPage.posts.push(newPost);
     state.contentPage.newPostText = '';
     rerenderEntireTree(state);
+
 }
 export let updateNewPostText = (newText) => {
 
     state.contentPage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+export let addMessage = () => {
+
+
+    let newMessage = {
+        message: state.dialogPage.newMessageText
+    };
+    state.dialogPage.messages.push(newMessage);
+    state.dialogPage.newMessageText = '';
+
+    rerenderEntireTree(state);
+
+}
+export let updateNewMessageText = (newTextText) => {
+
+    state.dialogPage.newMessageText = newTextText;
     rerenderEntireTree(state);
 }
 
