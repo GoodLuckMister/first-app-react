@@ -60,7 +60,7 @@ export const addMessage = () => {
         message: state.dialogPage.newMessageText
     };
     state.dialogPage.messages.push(newMessage);
-    state.dialogPage.newMessageText = '';
+    state.dialogPage.newMessageText = ' ';
 
     rerenderEntireTree(state);
 
