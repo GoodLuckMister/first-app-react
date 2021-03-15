@@ -20,9 +20,8 @@ const App = (props) => {
           render={() => (
             <Content
               contentPage={props.state.contentPage}
-              addPost={props.addPost}
+              dispatch={props.dispatch}
               newPostText={props.newPostText}
-              updateNewPostText={props.updateNewPostText}
             />
           )}
         />

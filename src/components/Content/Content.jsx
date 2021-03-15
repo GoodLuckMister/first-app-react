@@ -21,9 +21,8 @@ const Content = (props) => {
                 <Ava/>
                 <Description/>
                 <MyPosts/>
-                <NewPosts addPost={props.addPost}
+                <NewPosts dispatch={props.dispatch}
                           newPostText={props.contentPage.newPostText}
-                          updateNewPostText={props.updateNewPostText}
                 />
                 {postsData}
             </div>
