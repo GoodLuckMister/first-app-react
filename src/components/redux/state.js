@@ -1,7 +1,6 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+import reducerPost from "./post-page-reducer";
+import reducerMessage from "./message-page-reducer";
+
 let store = {
   _state: {
     contentPage: {
@@ -41,32 +40,7 @@ let store = {
   _rerenderEntireTree() {
     console.log("state changed");
   },
-  _addPost() {
-    let newPost = {
-      message: this._state.contentPage.newPostText,
-      likesCount: 0,
-    };
-    this._state.contentPage.posts.push(newPost);
-    this._state.contentPage.newPostText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  _updateNewPostText(newText) {
-    this._state.contentPage.newPostText = newText;
-    this._rerenderEntireTree(this._state);
-  },
-  _addMessage() {
-    let newMessage = {
-      message: this._state.dialogPage.newMessageText,
-    };
-    this._state.dialogPage.messages.push(newMessage);
-    this._state.dialogPage.newMessageText = "";
 
-    this._rerenderEntireTree(this._state);
-  },
-  _updateNewMessageText(newTextText) {
-    this._state.dialogPage.newMessageText = newTextText;
-    this._rerenderEntireTree(this._state);
-  },
   getState() {
     return this._state;
   },
@@ -75,30 +49,11 @@ let store = {
     this._rerenderEntireTree = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      this._addPost();
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._updateNewPostText(action.newText);
-    } else if (action.type === ADD_MESSAGE) {
-      this._addMessage();
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._updateNewMessageText(action.newText);
-    }
+    this._state.contentPage = reducerPost(this._state.contentPage, action);
+    this._state.dialogPage = reducerMessage(this._state.dialogPage, action);
+    this._rerenderEntireTree(this._state);
   },
 };
-
-export const actionAddPost = () => ({ type: "ADD-POST" });
-export const actionUpdateNewPost = (text) => ({
-  type: "UPDATE-NEW-POST-TEXT",
-  newText: text,
-});
-export const actionAddMessage = () => ({
-  type: "ADD-MESSAGE",
-});
-export const actionUpdateNewMessage = (text) => ({
-  type: "UPDATE-NEW-MESSAGE-TEXT",
-  newText: text,
-});
 
 window.store = store;
 

@@ -1,5 +1,8 @@
 import React from "react";
-import { actionAddPost, actionUpdateNewPost } from "../../../redux/state";
+import {
+  actionAddPost,
+  actionUpdateNewPost,
+} from "../../../redux/post-page-reducer";
 import s from "./newPosts.module.css";
 
 const NewPosts = (props) => {
