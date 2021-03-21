@@ -1,7 +1,17 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const updatePostPage = (state, action) => {
+const initialState = {
+  contentPage: {
+    posts: [
+      { message: "Hello my friend", likesCount: 15 },
+      { message: "I'm fine", likesCount: 20 },
+    ],
+    newPostText: "hello js",
+  },
+};
+
+const updatePostPage = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
