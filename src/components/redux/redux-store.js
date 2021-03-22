@@ -4,8 +4,8 @@ import reducerMessage from "./message-page-reducer";
 import reducerAsidePage from "./aside-page-reducer";
 
 let reducers = combineReducers({
-  postPage: reducerPost,
-  messagePage: reducerMessage,
+  contentPage: reducerPost,
+  dialogPage: reducerMessage,
   asidePage: reducerAsidePage,
 });
 let store = createStore(reducers);

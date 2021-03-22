@@ -10,8 +10,6 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
-  console.log(props);
-  debugger;
   return (
     <div className="appName">
       <Header />
@@ -31,7 +29,7 @@ const App = (props) => {
           path="/dialogs"
           render={() => (
             <Dialogs
-              dialogPage={props.state.messagePage}
+              dialogPage={props.state.dialogPage}
               dispatch={props.dispatch}
             />
           )}
