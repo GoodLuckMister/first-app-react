@@ -19,9 +19,8 @@ const App = (props) => {
           path="/content"
           render={() => (
             <Content
-              contentPage={props.state.contentPage}
+              state={props.state.contentPage}
               dispatch={props.dispatch}
-              newPostText={props.newPostText}
             />
           )}
         />

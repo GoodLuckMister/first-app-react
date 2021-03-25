@@ -1,14 +1,15 @@
 import React from "react";
 import s from "./Content.module.css";
-import NewPosts from "./posts/newPosts/newPosts";
+
 import MyPosts from "./posts/myPosts/MyPosts";
 import Ava from "./ava/Ava";
 import Description from "./description/Description";
 import ImageContent from "./content_image/content_image";
 import Posts from "./posts/Posts";
+import NewPostsContainer from "./posts/newPosts/newPostContainer";
 
 const Content = (props) => {
-  let postsData = props.contentPage.posts.map((p) => (
+  let postsData = props.state.posts.map((p) => (
     <Posts message={p.message} likesCount={p.likesCount} />
   ));
 
@@ -19,9 +20,9 @@ const Content = (props) => {
         <Ava />
         <Description />
         <MyPosts />
-        <NewPosts
+        <NewPostsContainer
           dispatch={props.dispatch}
-          newPostText={props.contentPage.newPostText}
+          newPostText={props.state.newPostText}
         />
         {postsData}
       </div>

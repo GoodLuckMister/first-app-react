@@ -11,12 +11,15 @@ const NewPostsContainer = (props) => {
   };
 
   let onPostChange = (text) => {
-    let text = newPostElement.current.value;
     props.dispatch(actionUpdateNewPost(text));
   };
 
   return (
-    <NewPosts actionUpdateNewPost={onPostChange} actionAddPost={addPosts} />
+    <NewPosts
+      actonCreateUpdateNewPost={onPostChange}
+      actionAddPost={addPosts}
+      newPostText={props.newPostText}
+    />
   );
 };
 
