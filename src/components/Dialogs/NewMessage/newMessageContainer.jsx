@@ -1,24 +1,31 @@
 import React from "react";
+import StateContext from "../../../contextState";
 import {
   actionAddMessage,
   actionUpdateNewMessage,
 } from "../../redux/message-page-reducer";
 import NewMessage from "./newMessage";
 
-const NewMessageContainer = (props) => {
-  debugger;
-  let addMessages = () => {
-    props.dispatch(actionAddMessage());
-  };
-  let onMessageChange = (text) => {
-    props.dispatch(actionUpdateNewMessage(text));
-  };
+const NewMessageContainer = () => {
   return (
-    <NewMessage
-      createMessage={addMessages}
-      changeMessage={onMessageChange}
-      newMessageText={props.newMessageText}
-    />
+    <StateContext.Consumer>
+      {(store) => {
+        let addMessages = () => {
+          store.dispatch(actionAddMessage());
+        };
+        let onMessageChange = (text) => {
+          store.dispatch(actionUpdateNewMessage(text));
+        };
+
+        return (
+          <NewMessage
+            createMessage={addMessages}
+            changeMessage={onMessageChange}
+            newMessageText={store.getState().dialogPage.newMessageText}
+          />
+        );
+      }}
+    </StateContext.Consumer>
   );
 };
 

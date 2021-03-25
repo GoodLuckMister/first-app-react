@@ -5,11 +5,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import StateContext from "./contextState";
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={state} dispatch={store.dispatch.bind(store)} />
+      <StateContext.Provider value={store}>
+        <App state={state} dispatch={store.dispatch.bind(store)} />
+      </StateContext.Provider>
     </BrowserRouter>,
     document.getElementById("root")
   );
