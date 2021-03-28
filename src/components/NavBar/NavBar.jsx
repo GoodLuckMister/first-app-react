@@ -3,7 +3,7 @@ import s from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
-  let asideSetBar = props.state.asideSet.map((par) => (
+  let asideSetBar = props.asideSet.asideSet.map((par) => (
     <NavLink to={par.id} className={s.link} activeClassName={s.activLink}>
       {par.paragraph}
     </NavLink>

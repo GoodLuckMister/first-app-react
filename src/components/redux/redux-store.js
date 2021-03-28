@@ -9,5 +9,6 @@ let reducers = combineReducers({
   asidePage: reducerAsidePage,
 });
 let store = createStore(reducers);
+window.store = store;
 
 export default store;

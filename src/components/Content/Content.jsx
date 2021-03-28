@@ -9,7 +9,7 @@ import Posts from "./posts/Posts";
 import NewPostsContainer from "./posts/newPosts/newPostContainer";
 
 const Content = (props) => {
-  let postsData = props.state.posts.map((p) => (
+  let postsData = props.posts.map((p) => (
     <Posts message={p.message} likesCount={p.likesCount} />
   ));
 
@@ -20,10 +20,7 @@ const Content = (props) => {
         <Ava />
         <Description />
         <MyPosts />
-        <NewPostsContainer
-          dispatch={props.dispatch}
-          newPostText={props.state.newPostText}
-        />
+        <NewPostsContainer />
         {postsData}
       </div>
     </div>

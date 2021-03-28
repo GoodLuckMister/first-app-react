@@ -5,11 +5,11 @@ import Message from "./Messages/Messages";
 import NewMessageContainer from "./NewMessage/newMessageContainer";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.dialogPage.dialogs.map((d) => (
+  let dialogsElements = props.data.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
-  let messagesElements = props.dialogPage.messages.map((m) => (
+  let messagesElements = props.data.messages.map((m) => (
     <Message id={m.id} message={m.message} />
   ));
 
@@ -18,10 +18,7 @@ const Dialogs = (props) => {
       <div className={s.dialogsItems}>{dialogsElements}</div>
       <div className={s.messages}>
         {messagesElements}
-        <NewMessageContainer
-          newMessageText={props.dialogPage.newMessageText}
-          dispatch={props.dispatch}
-        />
+        <NewMessageContainer />
       </div>
     </div>
   );
