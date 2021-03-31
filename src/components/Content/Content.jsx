@@ -10,7 +10,7 @@ import NewPostsContainer from "./posts/newPosts/newPostContainer";
 
 const Content = (props) => {
   let postsData = props.posts.map((p) => (
-    <Posts message={p.message} likesCount={p.likesCount} />
+    <Posts message={p.message} key={p.id} likesCount={p.likesCount} />
   ));
 
   return (

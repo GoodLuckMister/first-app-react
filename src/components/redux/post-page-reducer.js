@@ -10,28 +10,26 @@ const initialState = {
 };
 
 const updatePostPage = (state = initialState, action) => {
-  let stateCopy = { ...state };
-  stateCopy.posts = [...state.posts];
-
   switch (action.type) {
     case ADD_POST:
       let newPost = {
-        message: stateCopy.newPostText,
+        message: state.newPostText,
         likesCount: 0,
       };
-
-      stateCopy.posts.push(newPost);
-      stateCopy.newPostText = "";
-
-      break;
+      return {
+        ...state,
+        posts: [...state.posts, newPost],
+        newPostText: "",
+      };
     case UPDATE_NEW_POST_TEXT:
-      stateCopy.newPostText = action.newText;
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
 
-      break;
     default:
-      return stateCopy;
+      return state;
   }
-  return stateCopy;
 };
 
 export const actionAddPost = () => ({ type: ADD_POST });

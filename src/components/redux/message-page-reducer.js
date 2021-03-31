@@ -19,25 +19,25 @@ const initialState = {
 };
 
 const updateMessagePage = (state = initialState, action) => {
-  let copyState = { ...state };
-  copyState.dialogs = [...state.dialogs];
-  copyState.messages = [...state.messages];
-
   switch (action.type) {
     case ADD_MESSAGE:
       let newMessage = {
-        message: copyState.newMessageText,
+        message: state.newMessageText,
       };
-      copyState.messages.push(newMessage);
-      copyState.newMessageText = "";
-      break;
+      return {
+        ...state,
+        messages: [...state.messages, newMessage],
+        newMessageText: "",
+      };
+
     case UPDATE_NEW_MESSAGE_TEXT:
-      copyState.newMessageText = action.newText;
-      break;
+      return {
+        ...state,
+        newMessageText: action.newText,
+      };
     default:
-      return copyState;
+      return state;
   }
-  return copyState;
 };
 export const actionAddMessage = () => ({
   type: ADD_MESSAGE,

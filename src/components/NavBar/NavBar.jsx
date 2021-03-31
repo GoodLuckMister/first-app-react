@@ -4,7 +4,12 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
   let asideSetBar = props.asideSet.asideSet.map((par) => (
-    <NavLink to={par.id} className={s.link} activeClassName={s.activLink}>
+    <NavLink
+      to={par.id}
+      key={par.id}
+      className={s.link}
+      activeClassName={s.activLink}
+    >
       {par.paragraph}
     </NavLink>
   ));
