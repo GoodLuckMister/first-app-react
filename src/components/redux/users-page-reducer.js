@@ -3,32 +3,7 @@ const UN_FOLLOW = "UN_FOLLOW";
 const SET_USERS = "SET_USERS";
 
 const initialState = {
-  users: [
-    {
-      id: 1,
-      followed: true,
-      name: "Andre",
-      statusPage: "description",
-      cityName: "Kiev",
-      countryName: "Ukraine",
-    },
-    {
-      id: 2,
-      followed: true,
-      name: "Dmitri",
-      statusPage: "description",
-      cityName: "Moscow",
-      countryName: "Russia",
-    },
-    {
-      id: 3,
-      followed: false,
-      name: "Ignat",
-      statusPage: "description",
-      cityName: "Minsk",
-      countryName: "Belarus",
-    },
-  ],
+  users: [],
 };
 
 const updateUsers = (state = initialState, action) => {
@@ -37,7 +12,7 @@ const updateUsers = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map((u) => {
-          if (u.Id === action.userId) {
+          if (u.id === action.id) {
             return {
               ...u,
               followed: true,
@@ -50,7 +25,7 @@ const updateUsers = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map((u) => {
-          if (u.Id === action.userId) {
+          if (u.id === action.id) {
             return {
               ...u,
               followed: false,
