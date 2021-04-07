@@ -6,7 +6,7 @@ import NewMessageContainer from "./NewMessage/newMessageContainer";
 
 const Dialogs = (props) => {
   let dialogsElements = props.data.dialogs.map((d) => (
-    <DialogItem name={d.name} key={d.id} id={d.id} />
+    <DialogItem key={d.id} id={d.id} name={d.name} />
   ));
 
   let messagesElements = props.data.messages.map((m) => (
