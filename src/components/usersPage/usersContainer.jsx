@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Users from "./users";
+import Users from "./usersClass";
 import { followAC, unfollowAC, setUsers } from "../redux/users-page-reducer";
 
 const mapStateToProps = (state) => {
