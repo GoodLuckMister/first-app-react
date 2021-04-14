@@ -5,12 +5,12 @@ import Users from "./users";
 import Preloader from "../preloader/preloader";
 
 import {
-  followAC,
-  unfollowAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setTotalCountAC,
-  toggleIsFetchingAC,
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalCount,
+  toggleIsFetching,
 } from "../redux/users-page-reducer";
 
 class UsersClassContainer extends React.Component {
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   return {
     follow: (userId) => {
       dispatch(followAC(userId));
@@ -88,11 +88,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleIsFetchingAC(isFetching));
     },
   };
-};
+};*/
 
-const usersContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UsersClassContainer);
+const usersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalCount,
+  toggleIsFetching,
+})(UsersClassContainer);
 
 export default usersContainer;
