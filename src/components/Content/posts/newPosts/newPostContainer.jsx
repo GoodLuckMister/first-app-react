@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   actionAddPost,
   actionUpdateNewPost,
-} from "../../../redux/post-page-reducer";
+} from "../../../redux/content-page-reducer";
 import NewPosts from "./newPosts";
 
 const mapStateToProps = (state) => {

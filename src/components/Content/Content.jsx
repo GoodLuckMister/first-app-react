@@ -12,13 +12,15 @@ const Content = (props) => {
   let postsData = props.posts.map((p) => (
     <Posts key={p.id} message={p.message} likesCount={p.likesCount} />
   ));
-
+  if (!props.profile) {
+    return <> </>;
+  }
   return (
     <div>
       <ImageContent />
       <div className={s.homePage}>
-        <Ava />
-        <Description />
+        <Ava photo={props.profile.photos.large} />
+        <Description aboutMe={props.profile.aboutMe} />
         <MyPosts />
         <NewPostsContainer />
         {postsData}

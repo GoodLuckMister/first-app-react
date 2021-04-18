@@ -1,13 +1,8 @@
-import React, { } from 'react';
-import s from './Description.module.css';
+import React from "react";
+import s from "./Description.module.css";
 
-
-const Description = () => {
-    return (
-        <div className={s.Description}>
-        Description
-        </div>
-    )
-}
+const Description = (props) => {
+  return <div className={s.Description}>{props.aboutMe}</div>;
+};
 
 export default Description;

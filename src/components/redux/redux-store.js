@@ -1,11 +1,11 @@
 import { combineReducers, createStore } from "redux";
-import reducerPost from "./post-page-reducer";
+import reducerContent from "./content-page-reducer";
 import reducerMessage from "./message-page-reducer";
 import reducerAsidePage from "./aside-page-reducer";
 import reducerUsers from "./users-page-reducer";
 
 let reducers = combineReducers({
-  contentPage: reducerPost,
+  contentPage: reducerContent,
   dialogPage: reducerMessage,
   asidePage: reducerAsidePage,
   userPage: reducerUsers,
