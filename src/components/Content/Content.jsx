@@ -7,13 +7,14 @@ import Description from "./description/Description";
 import ImageContent from "./content_image/content_image";
 import Posts from "./posts/Posts";
 import NewPostsContainer from "./posts/newPosts/newPostContainer";
+import Preloader from "../preloader/preloader";
 
 const Content = (props) => {
   let postsData = props.posts.map((p) => (
     <Posts key={p.id} message={p.message} likesCount={p.likesCount} />
   ));
   if (!props.profile) {
-    return <> </>;
+    return <Preloader />;
   }
   return (
     <div>
