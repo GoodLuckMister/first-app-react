@@ -6,3 +6,7 @@
   width: 100px;
   height: 60px;
 }
+.loginBlock {
+  float: right;
+  color: aliceblue;
+}
