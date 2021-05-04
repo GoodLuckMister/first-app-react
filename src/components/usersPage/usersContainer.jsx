@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import * as axios from "axios";
 import React from "react";
 import Users from "./users";
 import Preloader from "../preloader/preloader";
+import { usersAPI } from "../API/api";
 
 import {
   follow,
@@ -16,33 +16,22 @@ import {
 class UsersClassContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    return axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.setTotalCount(response.data.totalCount - 11300);
+    return usersAPI
+      .getUsers(this.props.currentPage, this.props.pageSize)
+      .then((data) => {
+        this.props.setUsers(data.items);
+        this.props.setTotalCount(data.totalCount - 11300);
         this.props.toggleIsFetching(false);
       });
   }
   onPageChange = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
-    return axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.toggleIsFetching(false);
-      });
+
+    return usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
+      this.props.setUsers(data.items);
+      this.props.toggleIsFetching(false);
+    });
   };
   render() {
     return (
@@ -72,29 +61,6 @@ const mapStateToProps = (state) => {
     isFetching: state.userPage.isFetching,
   };
 };
-
-/*const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: (userId) => {
-      dispatch(setUsersAC(userId));
-    },
-    setCurrentPage: (page) => {
-      dispatch(setCurrentPageAC(page));
-    },
-    setTotalCount: (totalCount) => {
-      dispatch(setTotalCountAC(totalCount));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching));
-    },
-  };
-};*/
 
 const usersContainer = connect(mapStateToProps, {
   follow,
